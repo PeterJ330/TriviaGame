@@ -20,6 +20,9 @@ var time = 5;
 var i = 0;
 var correct = 0;
 var incorrect = 0;
+var right = false;
+var wrong = false;
+
 
 $(document).ready(function () {
     //========================================================================================================================================================================
@@ -41,62 +44,26 @@ $(document).ready(function () {
         $(".jumbotron").show();
         questionTimer();
         nextQuestion();
+        // stopOrContinue();
     })
-
-
-        // Displays next question
-    // function nextQuestion() {
-    //     resetTimer();
-    //     $("#question").html(questions[i]);
-    //     $("#answerOne").html("A: " + answer[i]);
-    //     $("#answerTwo").html("B: " + wrongAnswer[i]);
-    //     $("#answerThree").html("C: " + wrongAnswer[i]);
-    //     $("#answerFour").html("D: " + wrongAnswer[i]);
-
-    //     console.log("i "+ i);
-    // }
-
-     // Sets rate at which timer decreases (One Second)
-     function decrement() {
-        time--;
-        $("#questiontimer").html(time);
-        if (time === 0) {
-            i++;
-            wrong();
-        }
-    }
-
-    // Display on screen when answer is Incorrect
-    function wrong() {
-        incorrect++;
-        // setTimeout(wrong, 5000);
-        $("#rightOrWrong").html("INCORRECT!");
-        stopOrContinue();
-        console.log("Incorrect: "+ incorrect);
-        setTimeout(wrong, 5000);
-
-    }
-      // Display on screen when answer is correct
-      function correct() {
-        correct++;
-        setTimeout(correct, 5000);
-        $("#rightOrWrong").html("CORRECT!");
-        stopOrContinue();
-        console.log("Correct: "+ correct);
-    }
 
     // starts the round
     function questionTimer() {
         intervalId = setInterval(decrement, 1000);
     }
 
-    // // Sets rate at which timer decreases (One Second)
-    // function decrement() {
-    //     time--;
-    //     $("#questiontimer").html(time);
-    //     if (time === 0) {
-    //         i++;
-    //         wrong();
+    // Sets rate at which timer decreases (One Second)
+    function decrement() {
+        time--;
+        $("#questiontimer").html(time);
+    }
+
+    // Determines whether to continue [ nextQuestion() ] or if game is over [ gameReset() ]
+    // function stopOrContinue() {
+    //     if (i <= questions.length) {
+    //         nextQuestion();
+    //     } else {
+    //         gameReset();
     //     }
     // }
 
@@ -106,37 +73,80 @@ $(document).ready(function () {
         time = 5;
     }
 
-    // Determines whether to continue [ nextQuestion() ] or if game is over [ gameReset() ]
-    function stopOrContinue() {
-        if (i <= questions.length) {
-            nextQuestion();
-        } else {
-            gameReset();
-        }
-    }
+    // Resets Game
+    // function gameReset() {
+    //     i = 0;
+    //     correct = 0;
+    //     incorrect = 0;
+    // }
 
-    // // Displays next question
+    // Displays next question
     function nextQuestion() {
-        if (i <= questions.length){
         resetTimer();
+        right = false;
+        wrong = false;
+
         $("#question").html(questions[i]);
+        $("#rightOrWrong").html("");
         $("#answerOne").html("A: " + answer[i]);
         $("#answerTwo").html("B: " + wrongAnswer[i]);
         $("#answerThree").html("C: " + wrongAnswer[i]);
         $("#answerFour").html("D: " + wrongAnswer[i]);
 
-        console.log("i "+ i);
-    } else {
-        gameReset();
+        console.log("Right " + right, "Wrong " + wrong);
+    }
+
+    if (time < 0) {
+        wrong = true;
+        rightOrWrong();
+    }
+
+    // if (i <= 0) {
+    //     wrong = true;
+    //     rightOrWrong();
+    //     console.log("Right "+ right, "Wrong "+ wrong);
+    // }
+
+
+    function rightOrWrong () {
+    if (right === true) {
+        correctAnswer();
+    } else if (wrong === true) {
+        wrongAnswer();
     }
     }
 
-    // Resets Game
-    function gameReset() {
-        i = 0;
-        correct = 0;
-        incorrect = 0;
+
+    // Display on screen when answer is correct
+    // function correctAnswer() {
+    //     i++;
+    //     setTimeout(correctAnswer, 5000);
+    //     $("#rightOrWrong").html("CORRECT!");
+    //     stopOrContinue();
+    // }
+
+    //Display on screen when answer is Incorrect
+    function wrongAnswer() {
+        i++;
+        setTimeout(wrongAnswer, 5000);
+        $("#rightOrWrong").html("INCORRECT!");
+        //stopOrContinue();
+        nextQuestion();
+
     }
+
+
+
+    // Display on screen when answer is correct
+    // function correctAnswer() {
+    //     i++;
+    //     setTimeout(correctAnswer, 5000);
+    //     $("#rightOrWrong").html("CORRECT!");
+    //     stopOrContinue();
+    // }
+
+
+
 
 
 
