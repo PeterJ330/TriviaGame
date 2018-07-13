@@ -14,8 +14,8 @@
     <!-- JQuery CDN -->
     <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
     <!-- JS app.js -->
-    <script src="assets/javascript/app.js"></script>
-    <!-- <script src="assets/javascript/backup.js"></script> -->
+    <!-- <script src="assets/javascript/app.js"></script> -->
+    <script src="assets/javascript/backup.js"></script>
 
 </head>
 
@@ -49,20 +49,35 @@
                     </div>
                 </div>
             </div>
-            <div class="jumbotron">
+
+            <div id="questionJumbotron">
+                <div class="jumbotron">
                     <h1 class="display-4" id="questiontimer">25</h1>
-                    <p class="lead" id="question" >This is where the Question will Display. This is where the Question will Display. 
-                            This is where the Question will Display. This is where the Question will Display. This is where the Question will Display. 
+                    <p class="lead" id="question">This is where the Question will Display. This is where the Question will Display. This is where the Question
+                        will Display. This is where the Question will Display. This is where the Question will Display.
+                    </p>
+                    <hr class="my-4">
+                    <button id="button-1" class="replacethis"><p id="answerOne"></p></button>
+                    <button id="button-2" class="replacethis"><p id="answerTwo"></p></button>
+                    <button id="button-3" class="replacethis"><p id="answerThree"></p></button>
+                    <button id="button-4" class="replacethis"><p id="answerFour"></p></button>
+                </div> <!-- Closes .jumbotron-->
+            </div> <!-- Closes #questionJumbotron-->
+
+            <div id="answerJumbotron">
+                <div class="jumbotron">
+                    <h1 class="display-4" id="questiontimer">25</h1>
+                    <p class="lead" id="question">ANSWER ANSWER ANSWER ANSWER ANSWER ANSWER ANSWER ANSWER ANSWER ANSWER ANSWER ANSWER
                     </p>
                     <hr class="my-4">
                     <p id="rightOrWrong"> </p>
-                    <p id="answerOne"> </p>
-                    <p id="answerTwo"> </p>
-                    <p id="answerThree"> </p>
-                    <p id="answerFour"> </p>
-                    <!-- <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a> -->
-                  </div>
-            
+                    <button><p id="answerInfo1">Place Holder </p></button>
+                    <button><p id="answerInfo2">Place Holder </p></button>
+                    <button><p id="answerInfo3">Place Holder </p></button>
+                    <button><p id="answerInfo4">Place Holder </p></button>
+                </div> <!-- Closes .jumbotron-->
+            </div> <!-- Closes #answerJumbotron-->
+
 
             <br>
             <br>
