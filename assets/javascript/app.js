@@ -11,55 +11,56 @@ var questions = [
     "Spielberg directed 'Raiders of the Lost Ark' based on a story by this fellow friend and filmmaker:",
     "Spielberg founded a production company in the early '80s and named it this, after his first film about a hitchhiking couple.",
 ];
-var answer = [
-    "ISLA NUBLAR",
+var answerOne = [
+    "FIJI",
     "NORMANDY",
-    "CLOSE ENCOUNTERS OF THE THIRD KIND",
+   "EMPIRE OF THE SUN",
     "HENRY THOMAS",
-    "THE SUGARLAND EXPRESS",
-    "MUNITIONS",
-    "ORCA",
-    "TANKER TRUCK",
+    "CLOSE ENCOUNTERS OF THE THIRD KIND",
+    "TOOLS",
+    "SHARK",
+    "CAR CARRIER",
     "GEORGE LUCAS",
-    "AMBLIN",
+    "HITCHIN",
 ];
 
-var wrongAnswerOne = [
-    "FIJI",
+var answerTwo = [
+    "ISLA NUBLAR",
     "WATERLOO",
     "A.I. ARTIFICIAL INTELLIGENCE",
     "RIVER PHOENIX",
     "ALWAYS",
     "CARS",
-    "SHARK",
+    "ORCA",
     "JEEP",
     "FRANCES FORD COPPOLA",
     "HITCHING POST",
 ];
-var wrongAnswerTwo = [
+var answerThree = [
     "COSTA RICA",
     "IWO JIMA",
-    "EMPIRE OF THE SUN",
+    "CLOSE ENCOUNTERS OF THE THIRD KIND",
     "JOSEPH GORDON-LEVITT",
     "HOOK",
-    "TOOLS",
+    "MUNITIONS",
     "PORPOISE",
-    "CAR CARRIER",
+    "TANKER TRUCK",
     "HARRISON FORD",
     "BREEZIN",
 ];
 
-var wrongAnswerThree = [
+var answerFour = [
     "ISLA MUERTE",
     "BATTLE OF THE BULGE",
     "SCHINDLER'S LIST",
     "BRAD RENFRO",
-    "CLOSE ENCOUNTERS OF THE THIRD KIND",
+    "THE SUGARLAND EXPRESS",
     "TOYS",
     "DOLPHIN",
     "TOW TRUCK",
     "MARTIN SCORSESE",
-    "HITCHIN",
+    "AMBLIN",
+    
 ];
 
 
@@ -93,29 +94,46 @@ $(document).ready(function () {
             resetQuestionTimer();
             questionTimer();
             $("#question").html(questions[i]);
-            $("#answerOne").html(answer[i]);
-            $("#answerTwo").html(wrongAnswerOne[i]);
-            $("#answerThree").html(wrongAnswerTwo[i]);
-            $("#answerFour").html(wrongAnswerThree[i]);
+            $("#answerOne").html(answerOne[i]);
+            $("#answerTwo").html(answerTwo[i]);
+            $("#answerThree").html(answerThree[i]);
+            $("#answerFour").html(answerFour[i]);
         } else {
             gameStartOver();
         }
 
     } // Closes nextQuestion
-    
+
+    // Answer selection and determines if answer is right or wrong ========================================================================
     $("#answerOne").on("click", function () {
-        right();
+        if (i === 1 || i === 3 || i === 8) {
+            right();
+        } else {
+            wrong();            
+        }
     })
     $("#answerTwo").on("click", function () {
-        wrong();
+        if (i === 0 || i === 6) {            
+            right();
+        } else {            
+            wrong();            
+        }
     })
     $("#answerThree").on("click", function () {
-        wrong();
+        if (i === 2 || i === 5 || i === 7) {            
+            right();
+        } else {            
+            wrong();        
+        }
     })
     $("#answerFour").on("click", function () {
-        wrong();
+        if (i === 4 || i === 9) {
+            right();
+        } else {            
+            wrong();            
+        }
     })
-
+    // ================================================================================================================================================
 
     // Function created to reduce var time by 1. Holds conditional for question to be counted wrong if time runs out.
     function decrement() {
@@ -139,8 +157,38 @@ $(document).ready(function () {
         $("#rightanswer").hide();
         $("#wronganswer").show();
         $("#wronganswer").html("INCORRECT!");
-        $("#theAnswer").html("The Correct Answer Is " + answer[i]);
         setTimeout(nextQuestion, 1000 * 5);
+        if (i === 0) {
+             $("#theAnswer").html("The Correct Answer Is " + answerTwo[i]);
+
+        } else if (i === 1 ) {
+            $("#theAnswer").html("The Correct Answer Is " + answerOne[i]);
+
+        } else if (i === 2 ) {
+            $("#theAnswer").html("The Correct Answer Is " + answerThree[i]);
+            
+        } else if (i === 3 ) {
+            $("#theAnswer").html("The Correct Answer Is " + answerOne[i]);
+            
+        } else if (i === 4 ) {
+            $("#theAnswer").html("The Correct Answer Is " + answerFour[i]);
+            
+        } else if (i === 5 ) {
+            $("#theAnswer").html("The Correct Answer Is " + answerThree[i]);
+            
+        } else if (i === 6 ) {
+            $("#theAnswer").html("The Correct Answer Is " + answerTwo[i]);
+            
+        } else if (i === 7 ) {
+            $("#theAnswer").html("The Correct Answer Is " + answerThree[i]);
+            
+        } else if (i === 8 ) {
+            $("#theAnswer").html("The Correct Answer Is " + answerOne[i]);
+            
+        } else if (i === 9 ) {
+            $("#theAnswer").html("The Correct Answer Is " + answerFour[i]);
+            
+        }
     } // closes function wrong
 
     // Display on screen when answer is correct **************************************************************
@@ -152,8 +200,39 @@ $(document).ready(function () {
         $("#wronganswer").hide();
         $("#rightanswer").show();
         $("#rightanswer").html("Correct!");
-        $("#theAnswer").html(answer[i]);
         setTimeout(nextQuestion, 1000 * 5);
+        if (i === 0) {
+            $("#theAnswer").html(answerTwo[i]);
+
+        } else if (i === 1 ) {
+            $("#theAnswer").html(answerOne[i]);
+
+        } else if (i === 2 ) {
+            $("#theAnswer").html(answerThree[i]);
+            
+        } else if (i === 3 ) {
+            $("#theAnswer").html(answerOne[i]);
+            
+        } else if (i === 4 ) {
+            $("#theAnswer").html(answerFour[i]);
+            
+        } else if (i === 5 ) {
+            $("#theAnswer").html(answerThree[i]);
+            
+        } else if (i === 6 ) {
+            $("#theAnswer").html(answerTwo[i]);
+            
+        } else if (i === 7 ) {
+            $("#theAnswer").html(answerThree[i]);
+            
+        } else if (i === 8 ) {
+            $("#theAnswer").html(answerOne[i]);
+            
+        } else if (i === 9 ) {
+            $("#theAnswer").html(answerFour[i]);
+            
+        }
+    
     } // closes function right
 
     // Resets var time
@@ -168,8 +247,8 @@ function gameStartOver() {
     $("#questionJumbotron").hide();
     $("#answerJumbotron").hide();
     $("#resultsJumbotron").show();
-    $("#resultsCorrect").html("Number Correct: " + correct);
-    $("#resultsIncorrect").html("Number Incorrect: " + incorrect);
+    $("#resultsCorrect").html("Correct: " + correct);
+    $("#resultsIncorrect").html("Incorrect: " + incorrect);
     setTimeout(gameReset, 1000 * 5);
 } //Closes gameStartOver
 
@@ -182,8 +261,3 @@ function gameReset() {
     correct = 0;
     incorrect = 0;
 }
-
-
-
-
-

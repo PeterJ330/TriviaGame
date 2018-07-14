@@ -12,25 +12,25 @@ var questions = [
     "Spielberg founded a production company in the early '80s and named it this, after his first film about a hitchhiking couple.",
 ];
 var answer = [
-    "FIJI",
-    "IWO JIMA",
+    "ISLA NUBLAR",
+    "NORMANDY",
     "CLOSE ENCOUNTERS OF THE THIRD KIND",
-    "BRAD RENFRO",
-    "HOOK",
-    "CARS",
-    "PORPOISE",
+    "HENRY THOMAS",
+    "THE SUGARLAND EXPRESS",
+    "MUNITIONS",
+    "ORCA",
     "TANKER TRUCK",
     "GEORGE LUCAS",
-    "HITCHIN",
+    "AMBLIN",
 ];
 
 var wrongAnswerOne = [
-    "ISLA NUBLAR",
+    "FIJI",
     "WATERLOO",
     "A.I. ARTIFICIAL INTELLIGENCE",
     "RIVER PHOENIX",
     "ALWAYS",
-    "MUNITIONS",
+    "CARS",
     "SHARK",
     "JEEP",
     "FRANCES FORD COPPOLA",
@@ -38,12 +38,12 @@ var wrongAnswerOne = [
 ];
 var wrongAnswerTwo = [
     "COSTA RICA",
-    "NORMANDY",
+    "IWO JIMA",
     "EMPIRE OF THE SUN",
     "JOSEPH GORDON-LEVITT",
-    "THE SUGARLAND EXPRESS",
+    "HOOK",
     "TOOLS",
-    "ORCA",
+    "PORPOISE",
     "CAR CARRIER",
     "HARRISON FORD",
     "BREEZIN",
@@ -53,13 +53,13 @@ var wrongAnswerThree = [
     "ISLA MUERTE",
     "BATTLE OF THE BULGE",
     "SCHINDLER'S LIST",
-    "HENRY THOMAS",
+    "BRAD RENFRO",
     "CLOSE ENCOUNTERS OF THE THIRD KIND",
     "TOYS",
     "DOLPHIN",
     "TOW TRUCK",
     "MARTIN SCORSESE",
-    "AMBLIN",
+    "HITCHIN",
 ];
 
 
@@ -93,10 +93,10 @@ $(document).ready(function () {
             resetQuestionTimer();
             questionTimer();
             $("#question").html(questions[i]);
-            $("#answerOne").html("A: " + answer[i]);
-            $("#answerTwo").html("B: " + wrongAnswerOne[i]);
-            $("#answerThree").html("C: " + wrongAnswerTwo[i]);
-            $("#answerFour").html("D: " + wrongAnswerThree[i]);
+            $("#answerOne").html(answer[i]);
+            $("#answerTwo").html(wrongAnswerOne[i]);
+            $("#answerThree").html(wrongAnswerTwo[i]);
+            $("#answerFour").html(wrongAnswerThree[i]);
         } else {
             gameStartOver();
         }
@@ -104,33 +104,16 @@ $(document).ready(function () {
     } // Closes nextQuestion
 
     $("#answerOne").on("click", function () {
-        if (i === 1 || i === 3 || i === 8){
-            right();
-        } else {
-            wrong();
-        }
-        
+        right();
     })
     $("#answerTwo").on("click", function () {
-        if (i === 0 || i === 6) {
-            right();
-        } else {
-            wrong();
-        }
+        wrong();
     })
     $("#answerThree").on("click", function () {
-        if (i === 2 || i === 5 || i === 7){
-            right();
-        } else {
-            wrong();
-        }
+        wrong();
     })
     $("#answerFour").on("click", function () {
-        if (i === 4 || i === 9){
-            right();
-        } else {
-            wrong();
-        }
+        wrong();
     })
 
 
@@ -185,8 +168,8 @@ function gameStartOver() {
     $("#questionJumbotron").hide();
     $("#answerJumbotron").hide();
     $("#resultsJumbotron").show();
-    $("#resultsCorrect").html("Number Correct: " + correct);
-    $("#resultsIncorrect").html("Number Incorrect: " + incorrect);
+    $("#resultsCorrect").html("Correct: " + correct);
+    $("#resultsIncorrect").html("Incorrect: " + incorrect);
     setTimeout(gameReset, 1000 * 5);
 } //Closes gameStartOver
 
@@ -199,6 +182,12 @@ function gameReset() {
     correct = 0;
     incorrect = 0;
 }
+
+
+
+
+
+
 
 
 
