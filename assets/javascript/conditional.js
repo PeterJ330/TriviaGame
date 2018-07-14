@@ -12,25 +12,25 @@ var questions = [
     "Spielberg founded a production company in the early '80s and named it this, after his first film about a hitchhiking couple.",
 ];
 var answer = [
-    "ISLA NUBLAR",
-    "NORMANDY",
+    "FIJI",
+    "IWO JIMA",
     "CLOSE ENCOUNTERS OF THE THIRD KIND",
-    "HENRY THOMAS",
-    "THE SUGARLAND EXPRESS",
-    "MUNITIONS",
-    "ORCA",
+    "BRAD RENFRO",
+    "HOOK",
+    "CARS",
+    "PORPOISE",
     "TANKER TRUCK",
     "GEORGE LUCAS",
-    "AMBLIN",
+    "HITCHIN",
 ];
 
 var wrongAnswerOne = [
-    "FIJI",
+    "ISLA NUBLAR",
     "WATERLOO",
     "A.I. ARTIFICIAL INTELLIGENCE",
     "RIVER PHOENIX",
     "ALWAYS",
-    "CARS",
+    "MUNITIONS",
     "SHARK",
     "JEEP",
     "FRANCES FORD COPPOLA",
@@ -41,9 +41,9 @@ var wrongAnswerTwo = [
     "NORMANDY",
     "EMPIRE OF THE SUN",
     "JOSEPH GORDON-LEVITT",
-    "HOOK",
+    "THE SUGARLAND EXPRESS",
     "TOOLS",
-    "PORPOISE",
+    "ORCA",
     "CAR CARRIER",
     "HARRISON FORD",
     "BREEZIN",
@@ -53,13 +53,13 @@ var wrongAnswerThree = [
     "ISLA MUERTE",
     "BATTLE OF THE BULGE",
     "SCHINDLER'S LIST",
-    "BRAD RENFRO",
+    "HENRY THOMAS",
     "CLOSE ENCOUNTERS OF THE THIRD KIND",
     "TOYS",
     "DOLPHIN",
     "TOW TRUCK",
     "MARTIN SCORSESE",
-    "HITCHIN",
+    "AMBLIN",
 ];
 
 
@@ -103,21 +103,34 @@ $(document).ready(function () {
 
     } // Closes nextQuestion
 
-    $(".button").on("click", function () {
-        console.log("Button Clicked");
-    })
-
     $("#answerOne").on("click", function () {
-        right();
+        if (i === 1 || i === 3 || i === 8){
+            right();
+        } else {
+            wrong();
+        }
+        
     })
     $("#answerTwo").on("click", function () {
-        wrong();
+        if (i === 0 || i === 6) {
+            right();
+        } else {
+            wrong();
+        }
     })
     $("#answerThree").on("click", function () {
-        wrong();
+        if (i === 2 || i === 5 || i === 7){
+            right();
+        } else {
+            wrong();
+        }
     })
     $("#answerFour").on("click", function () {
-        wrong();
+        if (i === 4 || i === 9){
+            right();
+        } else {
+            wrong();
+        }
     })
 
 
