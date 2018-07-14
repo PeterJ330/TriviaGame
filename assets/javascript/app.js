@@ -1,65 +1,65 @@
 
 var questions = [
-    "Question One",
-    "Question Two",
-    "Question Three",
-    // "Question Four",
-    // "Question Five",
-    // "Question Six",
-    // "Question Seven",
-    // "Question Eight",
-    // "Question Nine",
-    // "Question Ten",
+    "John Hammond, the InGen CEO of 'Jurassic Park', creates dinosaurs on this island...",
+    "The opening sequence of 'Saving Private Ryan' depicts what military battle of World War II?",
+    "Legendary critic and director François Truffaut appeared as a French scientist in this Spielberg film...",
+    "This actor, who plays Elliott in 'E.T. The Extra-Terrestrial', auditioned for the role in an Indiana Jones costume.",
+    "Which of these Spielberg movies features a slow-motion car chase?",
+    "Oskar Schindler runs what kind of factory in 'Schindler's List'?",
+    "What's the name of Quint's boat in 'Jaws'?",
+    "What is the villain of Spielberg's first film, 'Duel'?",
+    "Spielberg directed 'Raiders of the Lost Ark' based on a story by this fellow friend and filmmaker:",
+    "Spielberg founded a production company in the early '80s and named it this, after his first film about a hitchhiking couple.",
 ];
 var answer = [
-    "A1",
-    "A2",
-    "A3",
-    "A4",
-    "A5",
-    "A6",
-    "A7",
-    "A8",
-    "A9",
-    "A10",
+    "ISLA NUBLAR",
+    "NORMANDY",
+    "CLOSE ENCOUNTERS OF THE THIRD KIND",
+    "HENRY THOMAS",
+    "THE SUGARLAND EXPRESS",
+    "MUNITIONS",
+    "ORCA",
+    "TANKER TRUCK",
+    "GEORGE LUCAS",
+    "AMBLIN",
 ];
 
 var wrongAnswerOne = [
-    "W1",
-    "W2",
-    "W3",
-    "W4",
-    "W5",
-    "W6",
-    "W7",
-    "W8",
-    "W9",
-    "W10",
+    "FIJI",
+    "WATERLOO",
+    "A.I. ARTIFICIAL INTELLIGENCE",
+    "RIVER PHOENIX",
+    "ALWAYS",
+    "CARS",
+    "SHARK",
+    "JEEP",
+    "FRANCES FORD COPPOLA",
+    "HITCHING POST",
 ];
 var wrongAnswerTwo = [
-    "W1",
-    "W2",
-    "W3",
-    "W4",
-    "W5",
-    "W6",
-    "W7",
-    "W8",
-    "W9",
-    "W10",
+    "COSTA RICA",
+    "IWO JIMA",
+    "EMPIRE OF THE SUN",
+    "JOSEPH GORDON-LEVITT",
+    "HOOK",
+    "TOOLS",
+    "PORPOISE",
+    "CAR CARRIER",
+    "HARRISON FORD",
+    "BREEZIN",
 ];
 
 var wrongAnswerThree = [
-    "W1",
-    "W2",
-    "W3",
-    "W4",
-    "W5",
-    "W6",
-    "W7",
-    "W8",
-    "W9",
-    "W10",
+    "ISLA MUERTE",
+    "BATTLE OF THE BULGE",
+    "SCHINDLER'S LIST",
+    "BRAD RENFRO",
+    "CLOSE ENCOUNTERS OF THE THIRD KIND",
+    "TOYS",
+    "DOLPHIN",
+    "TOW TRUCK",
+    "MARTIN SCORSESE",
+    "HITCHIN",
 ];
 
 
@@ -143,7 +143,7 @@ $(document).ready(function () {
         $("#rightanswer").hide();
         $("#wronganswer").show();
         $("#wronganswer").html("INCORRECT!");
-        $("#theAnswer").html("Correct Answer Is " + answer[i]);
+        $("#theAnswer").html("The Correct Answer Is " + answer[i]);
         setTimeout(nextQuestion, 1000 * 5);
     } // closes function wrong
 

@@ -32,6 +32,10 @@ body {
 
 }
 
+#question {
+    text-align: center;
+}
+
 #questiontimer {
     text-align: center;
     color: green;
