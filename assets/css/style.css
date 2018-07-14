@@ -60,14 +60,32 @@ body {
     border: solid black;
 }
 
-#rightOrWrong {
+
+#rightanswer {
+    text-align: center;
+    color: green;
+}
+#wronganswer {
+    text-align: center;
+    color: red;
+}
+#theAnswer {
     text-align: center;
 }
 
+#resultsCorrect {
+    text-align: center;
+    color: green
+}
 
+#resultsIncorrect {
+    text-align: center;
+    color: red;
+}
 
-
-
+#thankYou {
+    text-align: center;
+}
 
 
 #footer {
