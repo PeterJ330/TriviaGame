@@ -64,7 +64,7 @@ var wrongAnswerThree = [
 
 
 var intervalId;
-var time = 5;
+var time = 25;
 var i = -1;
 var correct = 0;
 var incorrect = 0;
@@ -76,12 +76,13 @@ $(document).ready(function () {
     $("#resultsJumbotron").hide();
     //========================================================================================================================================================================
 
-    // hides start button and displays jumbotron
+    // Starts game - hides start button and calls nextQuestion
     $("#startbutton").on("click", function () {
         $("#startbutton").hide();
         nextQuestion();
     })
-    // // Displays next question **************************************************************
+
+    // // Displays next question
     function nextQuestion() {
         clearInterval(intervalId);
         i++;
@@ -96,12 +97,11 @@ $(document).ready(function () {
             $("#answerTwo").html("B: " + wrongAnswerOne[i]);
             $("#answerThree").html("C: " + wrongAnswerTwo[i]);
             $("#answerFour").html("D: " + wrongAnswerThree[i]);
-            console.log("i " + i);
         } else {
             gameStartOver();
         }
 
-    } // Closes function nextQuestion ******************************************************************
+    } // Closes nextQuestion
 
     $(".button").on("click", function () {
         console.log("Button Clicked");
@@ -121,10 +121,9 @@ $(document).ready(function () {
     })
 
 
-    // Sets rate at which timer decreases (One Second)
+    // Function created to reduce var time by 1. Holds conditional for question to be counted wrong if time runs out.
     function decrement() {
-        console.log("question time: " + time);
-        time--;        
+        time--;
         $("#questiontimer").html(time);
         if (time < 0) {
             wrong();
@@ -133,10 +132,9 @@ $(document).ready(function () {
 
     function questionTimer() {
         intervalId = setInterval(decrement, 1000);
-        console.log("Question Timer: " + time);
     }
 
-    // Display on screen when answer is Incorrect **************************************************************
+    // Display on screen when answer is wrong **************************************************************
     function wrong() {
         incorrect++;
         clearInterval(intervalId);
@@ -146,12 +144,8 @@ $(document).ready(function () {
         $("#wronganswer").show();
         $("#wronganswer").html("INCORRECT!");
         $("#theAnswer").html("Correct Answer Is " + answer[i]);
-        console.log("Function WRONG");
-        console.log("i: " + i);
-        console.log("Incorrect: " + incorrect);
-        console.log("Correct: " + correct);
         setTimeout(nextQuestion, 1000 * 5);
-    }
+    } // closes function wrong
 
     // Display on screen when answer is correct **************************************************************
     function right() {
@@ -163,16 +157,12 @@ $(document).ready(function () {
         $("#rightanswer").show();
         $("#rightanswer").html("Correct!");
         $("#theAnswer").html(answer[i]);
-        console.log("Function CORRECT");
-        console.log("i: " + i);
-        console.log("Incorrect: " + incorrect);
-        console.log("Correct: " + correct);
         setTimeout(nextQuestion, 1000 * 5);
-    }
+    } // closes function right
 
-    // Resets Question Timer
+    // Resets var time
     function resetQuestionTimer() {
-        time = 5;
+        time = 25;
     }
 
 }) //closes $(document).ready(function()
@@ -189,12 +179,10 @@ function gameStartOver() {
 
 // Resets Game
 function gameReset() {
-    $("#questionJumbotron").hide();
-    $("#answerJumbotron").hide();
     $("#resultsJumbotron").hide();
     $("#startbutton").show();
     i = -1;
-    time = 5;
+    time = 25;
     correct = 0;
     incorrect = 0;
 }
