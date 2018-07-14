@@ -1,70 +1,70 @@
 
 var questions = [
-    "Question One",
-    "Question Two",
-    "Question Three",
-    // "Question Four",
-    // "Question Five",
-    // "Question Six",
-    // "Question Seven",
-    // "Question Eight",
-    // "Question Nine",
-    // "Question Ten",
+    "John Hammond, the InGen CEO of 'Jurassic Park', creates dinosaurs on this island...",
+    "The opening sequence of 'Saving Private Ryan' depicts what military battle of World War II?",
+    "Legendary critic and director François Truffaut appeared as a French scientist in this Spielberg film...",
+    "This actor, who plays Elliott in 'E.T. The Extra-Terrestrial', auditioned for the role in an Indiana Jones costume.",
+    "Which of these Spielberg movies features a slow-motion car chase?",
+    "Oskar Schindler runs what kind of factory in 'Schindler's List'?",
+    "What's the name of Quint's boat in 'Jaws'?",
+    "What is the villain of Spielberg's first film, 'Duel'?",
+    "Spielberg directed 'Raiders of the Lost Ark' based on a story by this fellow friend and filmmaker:",
+    "Spielberg founded a production company in the early '80s and named it this, after his first film about a hitchhiking couple.",
 ];
 var answer = [
-    "A1",
-    "A2",
-    "A3",
-    "A4",
-    "A5",
-    "A6",
-    "A7",
-    "A8",
-    "A9",
-    "A10",
+    "FIJI",
+    "IWO JIMA",
+    "CLOSE ENCOUNTERS OF THE THIRD KIND",
+    "BRAD RENFRO",
+    "HOOK",
+    "CARS",
+    "PORPOISE",
+    "TANKER TRUCK",
+    "GEORGE LUCAS",
+    "HITCHIN",
 ];
 
 var wrongAnswerOne = [
-    "W1",
-    "W2",
-    "W3",
-    "W4",
-    "W5",
-    "W6",
-    "W7",
-    "W8",
-    "W9",
-    "W10",
+    "ISLA NUBLAR",
+    "WATERLOO",
+    "A.I. ARTIFICIAL INTELLIGENCE",
+    "RIVER PHOENIX",
+    "ALWAYS",
+    "MUNITIONS",
+    "SHARK",
+    "JEEP",
+    "FRANCES FORD COPPOLA",
+    "HITCHING POST",
 ];
 var wrongAnswerTwo = [
-    "W1",
-    "W2",
-    "W3",
-    "W4",
-    "W5",
-    "W6",
-    "W7",
-    "W8",
-    "W9",
-    "W10",
+    "COSTA RICA",
+    "NORMANDY",
+    "EMPIRE OF THE SUN",
+    "JOSEPH GORDON-LEVITT",
+    "THE SUGARLAND EXPRESS",
+    "TOOLS",
+    "ORCA",
+    "CAR CARRIER",
+    "HARRISON FORD",
+    "BREEZIN",
 ];
 
 var wrongAnswerThree = [
-    "W1",
-    "W2",
-    "W3",
-    "W4",
-    "W5",
-    "W6",
-    "W7",
-    "W8",
-    "W9",
-    "W10",
+    "ISLA MUERTE",
+    "BATTLE OF THE BULGE",
+    "SCHINDLER'S LIST",
+    "HENRY THOMAS",
+    "CLOSE ENCOUNTERS OF THE THIRD KIND",
+    "TOYS",
+    "DOLPHIN",
+    "TOW TRUCK",
+    "MARTIN SCORSESE",
+    "AMBLIN",
 ];
 
 
 var intervalId;
-var time = 5;
+var time = 25;
 var i = -1;
 var correct = 0;
 var incorrect = 0;
@@ -76,12 +76,13 @@ $(document).ready(function () {
     $("#resultsJumbotron").hide();
     //========================================================================================================================================================================
 
-    // hides start button and displays jumbotron
+    // Starts game - hides start button and calls nextQuestion
     $("#startbutton").on("click", function () {
         $("#startbutton").hide();
         nextQuestion();
     })
-    // // Displays next question **************************************************************
+
+    // // Displays next question
     function nextQuestion() {
         clearInterval(intervalId);
         i++;
@@ -96,35 +97,46 @@ $(document).ready(function () {
             $("#answerTwo").html("B: " + wrongAnswerOne[i]);
             $("#answerThree").html("C: " + wrongAnswerTwo[i]);
             $("#answerFour").html("D: " + wrongAnswerThree[i]);
-            console.log("i " + i);
         } else {
             gameStartOver();
         }
 
-    } // Closes function nextQuestion ******************************************************************
-
-    $(".button").on("click", function () {
-        console.log("Button Clicked");
-    })
+    } // Closes nextQuestion
 
     $("#answerOne").on("click", function () {
-        right();
+        if (i === 1 || i === 3 || i === 8){
+            right();
+        } else {
+            wrong();
+        }
+        
     })
     $("#answerTwo").on("click", function () {
-        wrong();
+        if (i === 0 || i === 6) {
+            right();
+        } else {
+            wrong();
+        }
     })
     $("#answerThree").on("click", function () {
-        wrong();
+        if (i === 2 || i === 5 || i === 7){
+            right();
+        } else {
+            wrong();
+        }
     })
     $("#answerFour").on("click", function () {
-        wrong();
+        if (i === 4 || i === 9){
+            right();
+        } else {
+            wrong();
+        }
     })
 
 
-    // Sets rate at which timer decreases (One Second)
+    // Function created to reduce var time by 1. Holds conditional for question to be counted wrong if time runs out.
     function decrement() {
-        console.log("question time: " + time);
-        time--;        
+        time--;
         $("#questiontimer").html(time);
         if (time < 0) {
             wrong();
@@ -133,10 +145,9 @@ $(document).ready(function () {
 
     function questionTimer() {
         intervalId = setInterval(decrement, 1000);
-        console.log("Question Timer: " + time);
     }
 
-    // Display on screen when answer is Incorrect **************************************************************
+    // Display on screen when answer is wrong **************************************************************
     function wrong() {
         incorrect++;
         clearInterval(intervalId);
@@ -145,13 +156,9 @@ $(document).ready(function () {
         $("#rightanswer").hide();
         $("#wronganswer").show();
         $("#wronganswer").html("INCORRECT!");
-        $("#theAnswer").html("Correct Answer Is " + answer[i]);
-        console.log("Function WRONG");
-        console.log("i: " + i);
-        console.log("Incorrect: " + incorrect);
-        console.log("Correct: " + correct);
+        $("#theAnswer").html("The Correct Answer Is " + answer[i]);
         setTimeout(nextQuestion, 1000 * 5);
-    }
+    } // closes function wrong
 
     // Display on screen when answer is correct **************************************************************
     function right() {
@@ -163,16 +170,12 @@ $(document).ready(function () {
         $("#rightanswer").show();
         $("#rightanswer").html("Correct!");
         $("#theAnswer").html(answer[i]);
-        console.log("Function CORRECT");
-        console.log("i: " + i);
-        console.log("Incorrect: " + incorrect);
-        console.log("Correct: " + correct);
         setTimeout(nextQuestion, 1000 * 5);
-    }
+    } // closes function right
 
-    // Resets Question Timer
+    // Resets var time
     function resetQuestionTimer() {
-        time = 5;
+        time = 25;
     }
 
 }) //closes $(document).ready(function()
@@ -189,12 +192,10 @@ function gameStartOver() {
 
 // Resets Game
 function gameReset() {
-    $("#questionJumbotron").hide();
-    $("#answerJumbotron").hide();
     $("#resultsJumbotron").hide();
     $("#startbutton").show();
     i = -1;
-    time = 5;
+    time = 25;
     correct = 0;
     incorrect = 0;
 }

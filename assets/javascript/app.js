@@ -38,7 +38,7 @@ var wrongAnswerOne = [
 ];
 var wrongAnswerTwo = [
     "COSTA RICA",
-    "NORMANDY",
+    "IWO JIMA",
     "EMPIRE OF THE SUN",
     "JOSEPH GORDON-LEVITT",
     "HOOK",
@@ -93,20 +93,16 @@ $(document).ready(function () {
             resetQuestionTimer();
             questionTimer();
             $("#question").html(questions[i]);
-            $("#answerOne").html("A: " + answer[i]);
-            $("#answerTwo").html("B: " + wrongAnswerOne[i]);
-            $("#answerThree").html("C: " + wrongAnswerTwo[i]);
-            $("#answerFour").html("D: " + wrongAnswerThree[i]);
+            $("#answerOne").html(answer[i]);
+            $("#answerTwo").html(wrongAnswerOne[i]);
+            $("#answerThree").html(wrongAnswerTwo[i]);
+            $("#answerFour").html(wrongAnswerThree[i]);
         } else {
             gameStartOver();
         }
 
     } // Closes nextQuestion
-
-    $(".button").on("click", function () {
-        console.log("Button Clicked");
-    })
-
+    
     $("#answerOne").on("click", function () {
         right();
     })
