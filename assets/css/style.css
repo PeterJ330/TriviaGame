@@ -60,6 +60,10 @@ body {
     border: solid black;
 }
 
+#rightOrWrong {
+    text-align: center;
+}
+
 
 
 
