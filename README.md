@@ -1,3 +1,3 @@
 # TriviaGame
 
-Portfolio URL - https://peterjarrard.github.io/Responsive-Portfolio/
+Published at https://peterj330.github.io/TriviaGame/
